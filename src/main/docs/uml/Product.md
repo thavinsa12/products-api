@@ -9,7 +9,21 @@ class Product {
 + setId(id : Long) : void
 + setName(name : String) : void
 + setPrice(price : double) : void
-  }
+}
+
+class DigitalProduct {
+- downloadUrl : String
+- fileSizeMB : double
++ getDownloadUrl() : String
++ getFileSizeMB() : double
+}
+
+class PhysicalProduct {
+- weightKg : double
+- dimensions : String
++ getWeightKg() : double
++ getDimensions() : String
+}
 
 class ProductService {
 - products : List<Product>
@@ -19,7 +33,7 @@ class ProductService {
 + addProduct(product : Product) : Product
 + deleteProduct(id : Long) : void
 + findByName(name : String) : List<Product>
-  }
+}
 
 class ProductController {
 - productService : ProductService
@@ -27,8 +41,12 @@ class ProductController {
 + getProductById(id : Long) : Product
 + addProduct(product : Product) : Product
 + deleteProduct(id : Long) : void
-  }
-
-ProductController ..> ProductService
-ProductService --> Product
++ search(name : String) : List<Product>
+}
+ 
+class PhysicalProduct {
+  - weightKg : double
+  - dimensions : String
+  + getWeightKg() : double
+    }
 @enduml
