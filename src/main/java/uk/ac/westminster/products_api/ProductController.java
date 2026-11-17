@@ -11,18 +11,30 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-        @GetMapping("/products")
-        public List<Product> getAllProducts () {
-            return productService.getAllProducts();
-        }
+    @GetMapping("/products")
+    public List<Product> getAllProducts() {
+        return productService.getAllProducts();
+    }
 
-        @GetMapping("/products/{id}")
-        public Product getProductById (@PathVariable Long id){
-            return productService.getProductById(id).orElse(null);
+    @GetMapping("/products/{id}")
+    public Product getProductById(@PathVariable Long id) {
+        return productService.getProductById(id).orElse(null);
+    }
+
+    // in ProductController.java
+    @GetMapping("/products/summaries")
+    public List<String> getSummaries() {
+        return productService.getAllSummaries();
+    }
+
+}
 
 
-            }
-        }
+
+
+
+
+
 
 
 
